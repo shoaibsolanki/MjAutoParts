@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 // import { getDatabase } from 'firebase/database';
 // import {app } from './Firebase.js';
 import Header from './components/Header';

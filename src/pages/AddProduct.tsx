@@ -3,6 +3,7 @@ import { app } from '../Firebase'; // Make sure to configure Firebase
 import {  addDoc, collection  } from 'firebase/firestore';
 import { getFirestore } from "firebase/firestore";
 import { useSnackbar } from 'notistack';
+import { useNavigate } from 'react-router-dom';
 interface AddProductProps {
     handleImageUpload: () => void;
     uploadedImage: string | null;
@@ -18,7 +19,7 @@ const AddProduct: React.FC<AddProductProps> = ({ handleImageUpload, uploadedImag
     const [productDescription, setProductDescription] = useState('');
     const { enqueueSnackbar } = useSnackbar();
     const db = getFirestore(app)
-
+    const navigate = useNavigate()
     const handleSaveImaegandSumit = async (e: React.FormEvent)=>{
         e.preventDefault();
         if (!productName || !category || !productPrice || !productDescription) {
@@ -78,6 +79,16 @@ const AddProduct: React.FC<AddProductProps> = ({ handleImageUpload, uploadedImag
         }
     };
 
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            navigate('/login')
+            enqueueSnackbar('No token found. Please log in.', { variant: 'error' });
+            // Redirect to login page or handle the login logic here
+            return
+        }
+    }, []);
     
 
     return (

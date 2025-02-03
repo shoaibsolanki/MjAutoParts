@@ -71,9 +71,13 @@ useEffect(() => {
           {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
-        </div> : Array.from({ length: 5 }).map((_, index) => (
-            <div key={index} className="flex-[0_0_300px] min-w-0 animate-pulse bg-gray-300 rounded-lg h-[400px]"></div>
+        </div> :
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+{Array.from({ length: 3 }).map((_, index) => (
+            <div key={index} className="flex-[0_0_300px] min-w-0 animate-pulse bg-gray-300 rounded-lg h-[200px]"></div>
           ))}
+        </div>
+          }
       </section>
     </div>
   );

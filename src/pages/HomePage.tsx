@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 export default function HomePage() {
   // const featuredProducts = products.slice(0, 3);
   const { products ,fetchData} = useProduct();
-  const popularProducts = [...products].sort(() => Math.random() - 0.5); // Simulating popular products
+  // const popularProducts = [...products].sort(() => Math.random() - 0.5); // Simulating popular products
  console.log(products)
 const [searchTerm, setSearchTerm] = useState('');
 
@@ -54,7 +54,7 @@ useEffect(() => {
       {/* Popular Products Slider */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Popular Products</h2>
-        <ProductSlider products={popularProducts} />
+        <ProductSlider  />
       </section>
 
       {/* Categories */}

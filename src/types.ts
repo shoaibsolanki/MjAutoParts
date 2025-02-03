@@ -1,11 +1,12 @@
 export interface Product {
-  id: string;
+  id: string;  // Firestore IDs are strings
   name: string;
+  category:string;
   price: number;
-  category: string;
   Description: string;
   img: string;
 }
+
 
 export interface CartItem {
   productId: string;

@@ -8,12 +8,15 @@ interface Product {
     id: string;  // Firestore IDs are strings
     name: string;
     price: number;
-    description: string;
+    category:string;
+    Description: string;
+    img: string;
 }
 
 // Define Context type
 interface ProductContextProps {
     products: Product[];
+    fetchData: () => Promise<void>;
     addProduct: (product: Product) => void;
 }
 
@@ -24,11 +27,15 @@ const ProductContext = createContext<ProductContextProps | undefined>(undefined)
 export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [products, setProducts] = useState<Product[]>([]);
     const db = getFirestore(app);
+
     // Fetch Data from Firestore
     const fetchData = async () => {
         try {
             const querySnapshot = await getDocs(collection(db, "product"));
-            const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            const data: Product[] = querySnapshot.docs.map(doc => ({
+                id: doc.id,
+                ...(doc.data() as Omit<Product, "id">) // Ensuring type safety
+            }));
             console.log("Fetched Data:", data);
             setProducts(data);
         } catch (error) {
@@ -40,13 +47,13 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
         fetchData();
     }, []);
 
-    // Add Product (optional for now)
-    // const addProduct = (product: Product) => {
-    //     setProducts([...products, product]);
-    // };
+    // Add Product
+    const addProduct = (product: Product) => {
+        setProducts(prevProducts => [...prevProducts, product]);
+    };
 
     return (
-        <ProductContext.Provider value={{ products ,fetchData}}>
+        <ProductContext.Provider value={{ products, fetchData, addProduct }}>
             {children}
         </ProductContext.Provider>
     );

@@ -1,13 +1,13 @@
 import useEmblaCarousel from 'embla-carousel-react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useEffect, useCallback } from 'react';
-import { Product } from '../types';
+// import { Product } from '../types';
 import ProductCard from './ProductCard';
 import { useProduct } from '../Context/ProductContext';
 
-interface ProductSliderProps {
-  products: Product[];
-}
+// interface ProductSliderProps {
+//   products: Product[];
+// }
 
 export default function ProductSlider() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: 'start', skipSnaps: false, loop: true });
@@ -45,7 +45,7 @@ export default function ProductSlider() {
   <div className="overflow-hidden" ref={emblaRef}>
     <div className="flex gap-6">
       {products.length > 0
-        ? products.map((product) => (
+        ? products.slice(0, 5).map((product) => (
             <div key={product.id} className="flex-[0_0_300px] min-w-0">
               <ProductCard product={product} />
             </div>

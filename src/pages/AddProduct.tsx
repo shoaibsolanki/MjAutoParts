@@ -3,10 +3,9 @@ import { app } from '../Firebase'; // Make sure to configure Firebase
 import {  addDoc, collection  } from 'firebase/firestore';
 import { getFirestore } from "firebase/firestore";
 import { useSnackbar } from 'notistack';
-import {admin} from 'firebase-admin'
 interface AddProductProps {
     handleImageUpload: () => void;
-    uploadedImage: string;
+    uploadedImage: string | null;
     handleFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     setImage: (image: string) => void;
 }

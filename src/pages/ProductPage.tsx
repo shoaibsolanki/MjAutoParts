@@ -28,7 +28,7 @@ export default function ProductPage() {
   const handleWhatsAppInquiry = () => {
     const message = `Hi! I'm interested in ${product.name}.\n\n` +
       `Price: $${product.price}\n` +
-      `Description: ${product.description}\n\n` +
+      `Description: ${product.Description}\n\n` +
       `Product Image: ${product.img}\n\n` +
       `Can you provide more information?`;
 

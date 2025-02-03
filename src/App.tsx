@@ -1,19 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { getDatabase , ref, set} from 'firebase/database';
-import {app } from './Firebase.js';
+// import { getDatabase } from 'firebase/database';
+// import {app } from './Firebase.js';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import HomePage from './pages/HomePage';
 import ProductPage from './pages/ProductPage';
-import CartPage from './pages/CartPage';
-import CheckoutPage from './pages/CheckoutPage';
+// import CartPage from './pages/CartPage';
+// import CheckoutPage from './pages/CheckoutPage';
 import AuthPage from './pages/AuthPage';
 import CategoryPage from './pages/CategoryPage';
-import { Cloudinary } from '@cloudinary/url-gen';
-import { auto } from '@cloudinary/url-gen/actions/resize';
-import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity';
-import { AdvancedImage } from '@cloudinary/react';
+// import { Cloudinary } from '@cloudinary/url-gen';
+// import { auto } from '@cloudinary/url-gen/actions/resize';
+// import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity';
+// import { AdvancedImage } from '@cloudinary/react';
 import { useState } from 'react';
 import axios from 'axios';
 import Login from './pages/Login.js';
@@ -21,7 +21,7 @@ import ScrollToTop from './components/ScrollToTop.js';
 import NotFoundPage from './components/NotFoundPage.js';
 import AddProduct from './pages/AddProduct.js';
 
-const db = getDatabase(app);
+// const db = getDatabase(app);
 function App() {  
   const [uploadedImage, setUploadedImage] = useState<File  | null>(null);
   const [image, setImage] = useState<string | null>(null);
@@ -53,29 +53,29 @@ function App() {
     }
   };
 
-  const cld = new Cloudinary({ cloud: { cloudName: 'dfl3ehbuu' } });
+  // const cld = new Cloudinary({ cloud: { cloudName: 'dfl3ehbuu' } });
 
-  const img = image
-    ? cld
-        .image(image)
-        .format('auto')
-        .quality('auto')
-        .resize(auto().gravity(autoGravity()).width(500).height(500))
-    : null;
+  // const img = image
+  //   ? cld
+  //       .image(image)
+  //       .format('auto')
+  //       .quality('auto')
+  //       .resize(auto().gravity(autoGravity()).width(500).height(500))
+  //   : null;
     
-    const putdata = async()=>{
-      console.log("image ",img,image)
-      set( ref(db, 'products'), {
-        id: "1",
-        name: "Engine Oil",
-        price: 39.99,
-        category: "Engine",
-        description: "High-quality engine oil for improved performance",
-        compatibility: ["All vehicles"],
-        image: image,
-        stock: 100
-      })
-    }
+    // const putdata = async()=>{
+    //   console.log("image ",img,image)
+    //   set( ref(db, 'products'), {
+    //     id: "1",
+    //     name: "Engine Oil",
+    //     price: 39.99,
+    //     category: "Engine",
+    //     description: "High-quality engine oil for improved performance",
+    //     compatibility: ["All vehicles"],
+    //     image: image,
+    //     stock: 100
+    //   })
+    // }
 
   return (
     <Router>

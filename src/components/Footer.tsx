@@ -15,9 +15,9 @@ export default function Footer() {
               Your trusted source for quality auto parts and exceptional service.
             </p>
             <div className="space-y-2">
-              <a href="tel:+917062905353" className="flex items-center gap-2 text-gray-600 hover:text-blue-600">
+              <a href="tel:+917062903523" className="flex items-center gap-2 text-gray-600 hover:text-blue-600">
                 <Phone className="h-4 w-4" />
-                <span>+91 7062905353</span>
+                <span>+91 7062903523</span>
               </a>
               <a href="mailto:Mjavidkhokar9829@gmail.com" className="flex items-center gap-2 text-gray-600 hover:text-blue-600">
                 <Mail className="h-4 w-4" />

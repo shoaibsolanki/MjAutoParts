@@ -2,7 +2,7 @@ import { MessageCircle } from 'lucide-react';
 
 export default function WhatsAppButton() {
   const whatsappNumber = "7062903523"; // Replace with actual number
-  const message = "Hello! I'm interested in your auto parts.\n\nView our catalog: http://res.cloudinary.com/dfl3ehbuu/image/upload/v1697864735/nwcwpwcrjkuwlqqpkgnv.jpg";
+  const message = "Hello! I'm interested in your auto parts.\n\nView our catalog: https://mj-auto-parts.vercel.app/";
   
 const handleClick = () => {
     window.open(
